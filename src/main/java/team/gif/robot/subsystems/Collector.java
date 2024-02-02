@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class Collector extends SubsystemBase {
-    private static TalonSRX collector = new TalonSRX(RobotMap.COLLECTER_ID);
+    private static TalonSRX collector;
     public Collector() {
-
+        collector = new TalonSRX(RobotMap.COLLECTER_ID);
     }
     public void runCollector(double speed){collector.set(ControlMode.PercentOutput, speed);}
 }
