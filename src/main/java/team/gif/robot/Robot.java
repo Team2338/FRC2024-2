@@ -4,6 +4,7 @@
 
 package team.gif.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -44,7 +45,8 @@ public class Robot extends TimedRobot {
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
 
-        pigeon = new Pigeon(RobotMap.PIGEON);
+        pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON));
+        pigeon.addToShuffleboard("FRC2024", "head");
         limelight = new Limelight();
         driveTrain = new DriveTrain();
 //        driveTrain.setDefaultCommand(new ArcadeDrive());
