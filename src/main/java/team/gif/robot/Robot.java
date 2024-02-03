@@ -38,6 +38,7 @@ public class Robot extends TimedRobot {
         robotContainer = new RobotContainer();
 
         pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON));
+        pigeon.addToShuffleboard("FRC2024", "head");
         limelight = new Limelight();
 
         ui = new UI();
