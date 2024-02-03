@@ -4,9 +4,11 @@
 
 package team.gif.robot;
 
+import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.subsystems.Indexer;
 import team.gif.robot.subsystems.drivers.Limelight;
 import team.gif.robot.subsystems.drivers.Pigeon;
 
@@ -22,6 +24,7 @@ public class Robot extends TimedRobot {
     private RobotContainer robotContainer;
     public static Pigeon pigeon;
     public static Limelight limelight;
+    public static Indexer spark;
     public static OI oi;
     public static UI ui;
     public static UiSmartDashboard uiSmartDashboard;
@@ -38,7 +41,7 @@ public class Robot extends TimedRobot {
 
         pigeon = new Pigeon(RobotMap.PIGEON);
         limelight = new Limelight();
-
+        spark = new Indexer();
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
 
