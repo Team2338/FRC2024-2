@@ -6,10 +6,17 @@ package team.gif.robot;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.ArcadeDrive;
+import team.gif.robot.commands.TankDrive;
+import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.drivers.Limelight;
 import team.gif.robot.subsystems.drivers.Pigeon;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -26,6 +33,7 @@ public class Robot extends TimedRobot {
     public static OI oi;
     public static UI ui;
     public static UiSmartDashboard uiSmartDashboard;
+    public static DriveTrain driveTrain;
 
     /**
      * This function is run when the robot is first started up and should be used for any
@@ -40,10 +48,11 @@ public class Robot extends TimedRobot {
         pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON));
         pigeon.addToShuffleboard("FRC2024", "head");
         limelight = new Limelight();
-
+        driveTrain = new DriveTrain();
+//        driveTrain.setDefaultCommand(new ArcadeDrive());
+        driveTrain.setDefaultCommand(new TankDrive());
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
-
         oi = new OI();
     }
 
