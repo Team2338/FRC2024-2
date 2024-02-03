@@ -32,5 +32,7 @@ public class ArcadeDrive extends Command {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {}
+    public void end(boolean interrupted) {
+        Robot.driveTrain.driveArcade(0, 0);
+    }
 }

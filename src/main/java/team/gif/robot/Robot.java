@@ -47,7 +47,7 @@ public class Robot extends TimedRobot {
         pigeon = new Pigeon(RobotMap.PIGEON);
         limelight = new Limelight();
         driveTrain = new DriveTrain();
-        driveTrain.setDefaultCommand(new ArcadeDrive());
+//        driveTrain.setDefaultCommand(new ArcadeDrive());
         driveTrain.setDefaultCommand(new TankDrive());
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
