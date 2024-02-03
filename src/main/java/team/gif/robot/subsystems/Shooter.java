@@ -4,21 +4,27 @@
 
 package team.gif.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkBase;
 import com.revrobotics.CANSparkLowLevel;
 import com.revrobotics.CANSparkMax;
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class Shooter extends SubsystemBase {
     /** Creates a new ExampleSubsystem. */
-    private static CANSparkMax shooter;
+    private static TalonSRX shooter;
     public Shooter() {
-        shooter = new CANSparkMax(RobotMap.SHOOTER_ID, CANSparkLowLevel.MotorType.kBrushless);
-        shooter.restoreFactoryDefaults();
-        shooter.setIdleMode(CANSparkBase.IdleMode.kCoast);
+        shooter = new TalonSRX(RobotMap.SHOOTER_ID);
+        shooter.configFactoryDefault();
+        shooter.setNeutralMode(NeutralMode.Coast);
+        shooter.setInverted(true);
     }
     public void shooter (double speed){
-        shooter.set(speed);
+        shooter.set(ControlMode.PercentOutput, speed);
     }
 }
