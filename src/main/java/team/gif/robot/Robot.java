@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.subsystems.Shooter;
 import team.gif.robot.commands.ArcadeDrive;
 import team.gif.robot.commands.TankDrive;
 import team.gif.robot.subsystems.DriveTrain;
@@ -30,6 +31,7 @@ public class Robot extends TimedRobot {
     private RobotContainer robotContainer;
     public static Pigeon pigeon;
     public static Limelight limelight;
+    public static Shooter shooter;
     public static OI oi;
     public static UI ui;
     public static UiSmartDashboard uiSmartDashboard;
@@ -51,6 +53,7 @@ public class Robot extends TimedRobot {
         driveTrain = new DriveTrain();
 //        driveTrain.setDefaultCommand(new ArcadeDrive());
         driveTrain.setDefaultCommand(new TankDrive());
+        shooter = new Shooter();
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
         oi = new OI();

@@ -10,4 +10,5 @@ public abstract class RobotMap {
     public static final int FRONT_RIGHT_CIM = 11;
     public static final int REAR_RIGHT_CIM = 13;
     public static final int PIGEON = 13;
+    public static final int SHOOTER_ID = 9;
 }
