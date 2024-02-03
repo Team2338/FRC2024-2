@@ -4,6 +4,7 @@
 
 package team.gif.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -36,7 +37,8 @@ public class Robot extends TimedRobot {
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
 
-        pigeon = new Pigeon(RobotMap.PIGEON);
+        pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON));
+        pigeon.addToShuffleboard("FRC2024", "head");
         limelight = new Limelight();
 
         ui = new UI();
