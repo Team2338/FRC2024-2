@@ -25,6 +25,6 @@ public class Shooter extends SubsystemBase {
         shooter.setIdleMode(CANSparkBase.IdleMode.kCoast);
     }
     public void shooter (double speed){
-        shooter.set(ControlMode.PercentOutput, speed);
+        shooter.set(speed);
     }
 }
