@@ -4,10 +4,15 @@
 
 package team.gif.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkBase;
 import com.revrobotics.CANSparkLowLevel;
 import com.revrobotics.CANSparkFlex;
 import com.revrobotics.CANSparkMax;
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
@@ -20,6 +25,6 @@ public class Shooter extends SubsystemBase {
         shooter.setIdleMode(CANSparkBase.IdleMode.kCoast);
     }
     public void shooter (double speed){
-        shooter.set(speed);
+        shooter.set(ControlMode.PercentOutput, speed);
     }
 }
