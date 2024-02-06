@@ -6,15 +6,16 @@ package team.gif.robot.subsystems;
 
 import com.revrobotics.CANSparkBase;
 import com.revrobotics.CANSparkLowLevel;
+import com.revrobotics.CANSparkFlex;
 import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class Shooter extends SubsystemBase {
     /** Creates a new ExampleSubsystem. */
-    private static CANSparkMax shooter;
+    private static CANSparkFlex shooter;
     public Shooter() {
-        shooter = new CANSparkMax(RobotMap.SHOOTER_ID, CANSparkLowLevel.MotorType.kBrushless);
+        shooter = new CANSparkFlex(RobotMap.SHOOTER_ID, CANSparkLowLevel.MotorType.kBrushless);
         shooter.restoreFactoryDefaults();
         shooter.setIdleMode(CANSparkBase.IdleMode.kCoast);
     }
