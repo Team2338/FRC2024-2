@@ -4,6 +4,7 @@
 
 package team.gif.robot.subsystems;
 
+import com.revrobotics.CANSparkFlex;
 import com.revrobotics.CANSparkLowLevel;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
@@ -12,10 +13,10 @@ import team.gif.robot.RobotMap;
 
 public class Indexer extends SubsystemBase {
     /** Creates a new ExampleSubsystem. */
-    public CANSparkMax spark = new CANSparkMax(RobotMap.SPARK_MAX_ID, CANSparkLowLevel.MotorType.kBrushless);
+    public CANSparkFlex spark = new CANSparkFlex(RobotMap.SPARK_FLEX_ID, CANSparkLowLevel.MotorType.kBrushless);
     public Indexer() {}
     public void runIndexer(){
-        spark.set(0.3);
+        spark.set(0.1);
     }
     public void stopmotor(){spark.setVoltage(0);}
 }
