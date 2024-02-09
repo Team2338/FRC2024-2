@@ -42,6 +42,7 @@ public class Robot extends TimedRobot {
     public static UiSmartDashboard uiSmartDashboard;
     public static DriveTrain driveTrain;
     public static Collector collector;
+    public static boolean isReversed;
 
     /**
      * This function is run when the robot is first started up and should be used for any
@@ -52,7 +53,7 @@ public class Robot extends TimedRobot {
         // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
-
+        isReversed = false;
         pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON));
         pigeon.addToShuffleboard("FRC2024", "head");
         limelight = new Limelight();

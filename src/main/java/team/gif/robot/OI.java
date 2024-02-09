@@ -93,7 +93,9 @@ public class OI {
     dB.whileTrue(new Shoot());
     dY.whileTrue(new ShooterReverse());
         dA.whileTrue(new Collect());
-    dX.whileTrue(new IndexNote()); {
+    dX.whileTrue(new IndexNote());
+    dRBump.onTrue(new ToggleReverse());
+    {
         }
     }
 }

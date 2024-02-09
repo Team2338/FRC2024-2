@@ -17,8 +17,13 @@ public class Collect extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double speed = 1;
-        Robot.collector.runCollector(speed);
+        double collectorSpeed = 1;
+        Robot.collector.runCollector(collectorSpeed);
+        if (Robot.isReversed) {
+        collectorSpeed *= -1;
+        }
+        Robot.collector.runCollector(collectorSpeed);
+
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

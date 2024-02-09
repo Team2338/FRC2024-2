@@ -3,29 +3,23 @@ package team.gif.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Robot;
 
-public class Shoot extends Command {
+public class ToggleReverse extends Command {
 
-    public Shoot() {
+    public ToggleReverse() {
         super();
-        //addRequirements(Robot.climber); // uncomment
         addRequirements(Robot.shooter);
+        //addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
+        Robot.isReversed = !Robot.isReversed;
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
-    public void execute() {
-        double shooterPercent = 1;
-        if(Robot.isReversed) {
-            shooterPercent *= -1;
-        }
-    Robot.shooter.shooter(shooterPercent);
-
-    }
+    public void execute() {}
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
@@ -35,7 +29,5 @@ public class Shoot extends Command {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {
-        Robot.shooter.shooter(0);
-    }
+    public void end(boolean interrupted) {}
 }
