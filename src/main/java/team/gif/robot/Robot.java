@@ -15,6 +15,8 @@ import team.gif.robot.subsystems.Shooter;
 import team.gif.robot.commands.ArcadeDrive;
 import team.gif.robot.commands.TankDrive;
 import team.gif.robot.subsystems.DriveTrain;
+import team.gif.robot.commands.Collect;
+import team.gif.robot.subsystems.Collector;
 import team.gif.robot.subsystems.drivers.Limelight;
 import team.gif.robot.subsystems.drivers.Pigeon;
 
@@ -36,6 +38,7 @@ public class Robot extends TimedRobot {
     public static UI ui;
     public static UiSmartDashboard uiSmartDashboard;
     public static DriveTrain driveTrain;
+    public static Collector collector;
 
     /**
      * This function is run when the robot is first started up and should be used for any
@@ -54,6 +57,7 @@ public class Robot extends TimedRobot {
 //        driveTrain.setDefaultCommand(new ArcadeDrive());
         driveTrain.setDefaultCommand(new TankDrive());
         shooter = new Shooter();
+        collector = new Collector();
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
         oi = new OI();
