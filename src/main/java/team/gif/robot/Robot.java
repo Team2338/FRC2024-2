@@ -44,7 +44,6 @@ public class Robot extends TimedRobot {
         collector = new Collector();
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
-        collector.setDefaultCommand(new Collect());
         oi = new OI();
     }
 
