@@ -16,7 +16,7 @@ public class Indexer extends SubsystemBase {
     /** Creates a new ExampleSubsystem. */
     public TalonSRX indexerMotor;
     public Indexer() {
-        indexerMotor = new TalonSRX(RobotMap.IDEXER_ID);
+        indexerMotor = new TalonSRX(RobotMap.INDEXER_ID);
     }
     public void runIndexer(){
         indexerMotor.set(TalonSRXControlMode.PercentOutput, Constants.Indexer.INDEXER_PERCENT);

@@ -17,7 +17,7 @@ public class Collect extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double speed = 0.7;
+        double speed = 1;
         Robot.collector.runCollector(speed);
     }
 
