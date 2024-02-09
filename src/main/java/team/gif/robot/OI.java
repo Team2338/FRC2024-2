@@ -91,6 +91,6 @@ public class OI {
      *   aX.onTrue(new PrintCommand("aX"));
      */
     dB.whileTrue(new Shoot());
-        dB.whileTrue(new Collect());
+        dA.whileTrue(new Collect());
     }
 }
