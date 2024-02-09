@@ -4,9 +4,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.Shoot;
-import team.gif.robot.commands.Collect;
-import team.gif.robot.commands.IndexNote;
+import team.gif.robot.commands.*;
 
 public class OI {
     /*
@@ -93,6 +91,7 @@ public class OI {
      *   aX.onTrue(new PrintCommand("aX"));
      */
     dB.whileTrue(new Shoot());
+    dY.whileTrue(new ShooterReverse());
         dA.whileTrue(new Collect());
     dX.whileTrue(new IndexNote()); {
         }
