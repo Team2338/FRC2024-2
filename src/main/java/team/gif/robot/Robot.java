@@ -5,6 +5,7 @@
 package team.gif.robot;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -17,6 +18,7 @@ import team.gif.robot.commands.TankDrive;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.commands.Collect;
 import team.gif.robot.subsystems.Collector;
+import team.gif.robot.subsystems.Indexer;
 import team.gif.robot.subsystems.drivers.Limelight;
 import team.gif.robot.subsystems.drivers.Pigeon;
 
@@ -34,6 +36,7 @@ public class Robot extends TimedRobot {
     public static Pigeon pigeon;
     public static Limelight limelight;
     public static Shooter shooter;
+    public static Indexer spark;
     public static OI oi;
     public static UI ui;
     public static UiSmartDashboard uiSmartDashboard;
@@ -58,6 +61,7 @@ public class Robot extends TimedRobot {
         driveTrain.setDefaultCommand(new TankDrive());
         shooter = new Shooter();
         collector = new Collector();
+        spark = new Indexer();
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
         oi = new OI();

@@ -1,10 +1,12 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.Shoot;
 import team.gif.robot.commands.Collect;
+import team.gif.robot.commands.IndexNote;
 
 public class OI {
     /*
@@ -92,5 +94,7 @@ public class OI {
      */
     dB.whileTrue(new Shoot());
         dA.whileTrue(new Collect());
+    dX.whileTrue(new IndexNote()); {
+        }
     }
 }

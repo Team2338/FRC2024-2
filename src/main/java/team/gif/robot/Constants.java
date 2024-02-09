@@ -16,4 +16,8 @@ public final class Constants {
     public static class OperatorConstants {
         public static final int kDriverControllerPort = 0;
     }
+
+    public static class Indexer {
+        public static final double INDEXER_PERCENT = 0.5;
+    }
 }
