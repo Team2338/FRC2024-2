@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.*;
+import team.gif.robot.commands.climber.ReverseRunClimber;
+import team.gif.robot.commands.climber.RunClimber;
 
 public class OI {
     /*
@@ -97,5 +99,6 @@ public class OI {
     {
         }
         dY.whileTrue(new RunClimber());
+        dLBump.whileTrue(new ReverseRunClimber());
     }
 }

@@ -8,7 +8,7 @@ public class Collect extends Command {
     public Collect() {
         super();
         //addRequirements(Robot.climber); // uncomment
-        addRequirements(Robot.collector, Robot.spark);
+        addRequirements(Robot.collector, Robot.indexer);
     }
 
     // Called when the command is initially scheduled.
@@ -24,8 +24,11 @@ public class Collect extends Command {
         collectorSpeed *= -1;
         indexModifier *= -1;
         }
+        if (Robot.indexer.getSensor()) {
+            indexModifier *= 0;
+        }
         Robot.collector.runCollector(collectorSpeed);
-        Robot.spark.runIndexer(indexModifier * Constants.Indexer.INDEXER_PERCENT);
+        Robot.indexer.runIndexer(indexModifier * Constants.Indexer.INDEXER_PERCENT);
 
     }
 
@@ -39,5 +42,6 @@ public class Collect extends Command {
     @Override
     public void end(boolean interrupted) {
         Robot.collector.runCollector(0);
+        Robot.indexer.runIndexer(0);
     }
 }
