@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.Shoot;
 import team.gif.robot.commands.Collect;
 import team.gif.robot.commands.IndexNote;
+import team.gif.robot.commands.climber.RunClimber;
 
 public class OI {
     /*
@@ -92,9 +93,9 @@ public class OI {
      * Simple Test:
      *   aX.onTrue(new PrintCommand("aX"));
      */
-    dB.whileTrue(new Shoot());
+        dB.whileTrue(new Shoot());
         dA.whileTrue(new Collect());
-    dX.whileTrue(new IndexNote()); {
-        }
+        dX.whileTrue(new IndexNote());
+        dY.whileTrue(new RunClimber());
     }
 }
