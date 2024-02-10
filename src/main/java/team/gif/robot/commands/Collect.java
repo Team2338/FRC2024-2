@@ -1,13 +1,14 @@
 package team.gif.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 public class Collect extends Command {
 
     public Collect() {
         super();
         //addRequirements(Robot.climber); // uncomment
-        addRequirements(Robot.collector);
+        addRequirements(Robot.collector, Robot.spark);
     }
 
     // Called when the command is initially scheduled.
@@ -18,10 +19,13 @@ public class Collect extends Command {
     @Override
     public void execute() {
         double collectorSpeed = 1;
+        double indexModifier = 1;
         if (Robot.isReversed) {
         collectorSpeed *= -1;
+        indexModifier *= -1;
         }
         Robot.collector.runCollector(collectorSpeed);
+        Robot.spark.runIndexer(indexModifier * Constants.Indexer.INDEXER_PERCENT);
 
     }
 
