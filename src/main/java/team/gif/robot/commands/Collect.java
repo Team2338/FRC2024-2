@@ -18,7 +18,6 @@ public class Collect extends Command {
     @Override
     public void execute() {
         double collectorSpeed = 1;
-        Robot.collector.runCollector(collectorSpeed);
         if (Robot.isReversed) {
         collectorSpeed *= -1;
         }
