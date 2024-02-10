@@ -14,17 +14,24 @@ public class IndexNote extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-    Robot.spark.runIndexer();
+
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
-    public void execute() {}
+    public void execute() {
+        if(Robot.spark.isObjectDetected()){
+            Robot.spark.stopmotor();
+        }
+        else{
+            Robot.spark.runIndexer();
+        }
+    }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return false;
+        return Robot.spark.isObjectDetected();
     }
 
     // Called when the command ends or is interrupted.

@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkFlex;
 import com.revrobotics.CANSparkLowLevel;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.Constants;
 import team.gif.robot.RobotMap;
@@ -15,8 +16,16 @@ import team.gif.robot.RobotMap;
 public class Indexer extends SubsystemBase {
     /** Creates a new ExampleSubsystem. */
     public TalonSRX indexerMotor;
+
+    public DigitalInput objectDetector;
+
     public Indexer() {
         indexerMotor = new TalonSRX(RobotMap.IDEXER_ID);
+        objectDetector = new DigitalInput(RobotMap.SENSOR_ID);
+    }
+
+    public boolean isObjectDetected(){
+        return objectDetector.get();
     }
     public void runIndexer(){
         indexerMotor.set(TalonSRXControlMode.PercentOutput, Constants.Indexer.INDEXER_PERCENT);
