@@ -28,4 +28,5 @@ public class Shooter extends SubsystemBase {
     public void shooter (double speed){
         shooter.set(speed);
     }
+
 }
