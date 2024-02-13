@@ -90,11 +90,11 @@ public class OI {
      * Simple Test:
      *   aX.onTrue(new PrintCommand("aX"));
      */
-    dB.whileTrue(new Shoot());
-    dY.whileTrue(new ShooterReverse());
-        dA.whileTrue(new Collect());
-    dX.whileTrue(new IndexNote());
-    dRBump.onTrue(new ToggleReverse());
+    aB.whileTrue(new Shoot());
+    aY.whileTrue(new ShooterReverse());
+        aA.whileTrue(new Collect());
+    aX.whileTrue(new IndexNote());
+    aRBump.onTrue(new ToggleReverse());
     {
         }
     }
