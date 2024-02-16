@@ -14,6 +14,7 @@ import com.revrobotics.CANSparkFlex;
 import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import team.gif.robot.Constants;
 import team.gif.robot.RobotMap;
 
 public class Shooter extends SubsystemBase {
@@ -27,4 +28,5 @@ public class Shooter extends SubsystemBase {
     public void shooter (double speed){
         shooter.set(speed);
     }
+
 }

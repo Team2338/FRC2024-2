@@ -1,39 +1,25 @@
 package team.gif.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class IndexNote extends Command {
+public class ToggleReverse extends Command {
 
-    public IndexNote() {
+    public ToggleReverse() {
         super();
-    addRequirements(Robot.indexer);
+        addRequirements(Robot.shooter);
         //addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {}
+    public void initialize() {
+        Robot.isReversed = !Robot.isReversed;
+    }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
-    public void execute() {
-
-
-
-        double indexerModifier = 1;
-        if (Robot.isReversed){
-            indexerModifier *= -1;
-        }
-
-
-        Robot.indexer.runIndexer(Constants.Indexer.INDEXER_PERCENT * indexerModifier);
-
-        if(Robot.indexer.getSensor()) {
-            Robot.indexer.stopmotor();
-        }
-    }
+    public void execute() {}
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
@@ -43,7 +29,5 @@ public class IndexNote extends Command {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {
-        Robot.indexer.stopmotor();
-    }
+    public void end(boolean interrupted) {}
 }

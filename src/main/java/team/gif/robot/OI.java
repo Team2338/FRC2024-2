@@ -4,9 +4,8 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.Shoot;
-import team.gif.robot.commands.Collect;
-import team.gif.robot.commands.IndexNote;
+import team.gif.robot.commands.*;
+import team.gif.robot.commands.climber.ReverseRunClimber;
 import team.gif.robot.commands.climber.RunClimber;
 
 public class OI {
@@ -95,7 +94,11 @@ public class OI {
      */
         dB.whileTrue(new Shoot());
         dA.whileTrue(new Collect());
-        dX.whileTrue(new IndexNote());
+    dX.whileTrue(new IndexNote());
+    dRBump.onTrue(new ToggleReverse());
+    {
+        }
         dY.whileTrue(new RunClimber());
+        dLBump.whileTrue(new ReverseRunClimber());
     }
 }
