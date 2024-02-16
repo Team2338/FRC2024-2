@@ -7,5 +7,6 @@ public class UI {
 
     public UI() {
         ShuffleboardTab shuffleboardTab = Shuffleboard.getTab("FRC2024");
+        shuffleboardTab.addBoolean("sensor", Robot.indexer::getSensor);
     }
 }

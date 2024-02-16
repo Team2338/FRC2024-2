@@ -23,4 +23,8 @@ public final class Constants {
     public static class Indexer {
         public static final double INDEXER_PERCENT = 1;
     }
+
+    public static class Collector {
+        public static final double COLLECTOR_PERCENT = .7;
+    }
 }
