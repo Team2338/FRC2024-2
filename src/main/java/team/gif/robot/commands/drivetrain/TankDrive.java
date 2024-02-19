@@ -1,14 +1,14 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.drivetrain;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import team.gif.robot.Constants;
 import team.gif.robot.Robot;
-public class Collect extends Command {
 
-    public Collect() {
+public class TankDrive extends Command {
+
+    public TankDrive() {
         super();
+        addRequirements(Robot.driveTrain);
         //addRequirements(Robot.climber); // uncomment
-        addRequirements(Robot.collector, Robot.indexer);
     }
 
     // Called when the command is initially scheduled.
@@ -18,18 +18,10 @@ public class Collect extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double collectorSpeed = 1;
-        double indexModifier = 1;
-        if (Robot.isReversed) {
-        collectorSpeed *= -1;
-        indexModifier *= -1;
-        }
-        if (Robot.indexer.getSensor()) {
-            indexModifier *= 0;
-        }
-        Robot.collector.runCollector(collectorSpeed);
-        Robot.indexer.runIndexer(indexModifier * Constants.Indexer.INDEXER_PERCENT);
+        double rightPos = Robot.oi.driver.getRightY();
+        double leftPos = -Robot.oi.driver.getLeftY();
 
+        Robot.driveTrain.driveTank(leftPos, rightPos);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -41,7 +33,6 @@ public class Collect extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.collector.runCollector(0);
-        Robot.indexer.runIndexer(0);
+        Robot.driveTrain.driveTank(0, 0);
     }
 }

@@ -1,12 +1,14 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.*;
 import team.gif.robot.commands.climber.ReverseRunClimber;
 import team.gif.robot.commands.climber.RunClimber;
+import team.gif.robot.commands.collector.Collect;
+import team.gif.robot.commands.indexer.IndexNote;
+import team.gif.robot.commands.shooter.Shoot;
 
 public class OI {
     /*
