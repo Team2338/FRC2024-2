@@ -4,12 +4,8 @@
 
 package team.gif.robot.subsystems;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
-import edu.wpi.first.wpilibj.Relay;
-import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.simulation.SolenoidSim;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
@@ -18,11 +14,13 @@ public class Pneumatics extends SubsystemBase {
     private DoubleSolenoid.Value state = DoubleSolenoid.Value.kForward;
 
 
-    /** Creates a new ExampleSubsystem. */
     public Pneumatics() {}
-    public void collectorDown(){
-    state = DoubleSolenoid.Value.kForward;
-
+    public void collectorToggle() {
+        if (state == DoubleSolenoid.Value.kForward) {
+            state = DoubleSolenoid.Value.kReverse;
+        } else {
+            state = DoubleSolenoid.Value.kForward;
+        }
     }
 
 }

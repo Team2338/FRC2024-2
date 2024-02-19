@@ -15,5 +15,5 @@ public abstract class RobotMap {
     public static final int INDEXER_ID = 9;
     public static final int CLIMBER_ID = 10;
     public static final int SOLENOID_IN_ID = 0;
-    public static final int SOLENOID_OUT_ID;
+    public static final int SOLENOID_OUT_ID = 1;
 }
