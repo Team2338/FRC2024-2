@@ -5,6 +5,7 @@
 package team.gif.robot.subsystems;
 
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -13,14 +14,15 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class Pneumatics extends SubsystemBase {
-    private static final Solenoid solenoid = new Solenoid (PneumaticsModuleType.REVPH,0);
-    private Solenoid.Value state = Solenoid.Value.kForward;
+    private static final DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, RobotMap.SOLENOID_IN_ID, RobotMap.SOLENOID_OUT_ID);
+    private DoubleSolenoid.Value state = DoubleSolenoid.Value.kForward;
 
 
     /** Creates a new ExampleSubsystem. */
     public Pneumatics() {}
     public void collectorDown(){
-    state = Solenoid.Value;
+    state = DoubleSolenoid.Value.kForward;
+
     }
 
 }
