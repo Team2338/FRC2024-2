@@ -21,9 +21,9 @@ private int runs;
     @Override
     public void execute() {
         runs++;
-        double shooterPercent = 1;
+        double shooterPercent = -1;
         if(Robot.isReversed) {
-            shooterPercent *= -1;
+            shooterPercent *= 1;
         }
         Robot.shooter.shooter(shooterPercent);
         //TODO: Sensor broke?

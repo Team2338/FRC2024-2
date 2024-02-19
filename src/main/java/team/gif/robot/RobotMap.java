@@ -14,4 +14,5 @@ public abstract class RobotMap {
     public static final int COLLECTER_ID = 3;
     public static final int INDEXER_ID = 9;
     public static final int CLIMBER_ID = 10;
+    public static final int SOLENOID_ID = 0;
 }
