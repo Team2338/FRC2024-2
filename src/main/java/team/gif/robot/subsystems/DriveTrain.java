@@ -15,8 +15,7 @@ public class DriveTrain extends SubsystemBase {
     private WPI_TalonSRX rearLeftCIM;
     private WPI_TalonSRX frontRightCIM;
     private WPI_TalonSRX rearRightCIM;
-    MotorControllerGroup leftMotors;
-    MotorControllerGroup rightMotors;
+
     private DifferentialDrive drive;
     public DriveTrain() {
         frontLeftCIM = new WPI_TalonSRX(RobotMap.FRONT_LEFT_CIM);
@@ -27,9 +26,11 @@ public class DriveTrain extends SubsystemBase {
         rearLeftCIM.configFactoryDefault();
         frontRightCIM.configFactoryDefault();
         rearRightCIM.configFactoryDefault();
-        leftMotors = new MotorControllerGroup(frontLeftCIM, rearLeftCIM);
-        rightMotors = new MotorControllerGroup(frontRightCIM, rearRightCIM);
-        drive = new DifferentialDrive(leftMotors, rightMotors);
+
+        frontLeftCIM.follow(frontLeftCIM);
+        rearRightCIM.follow(frontRightCIM);
+
+        drive = new DifferentialDrive(frontLeftCIM, frontRightCIM);
     }
     public void driveArcade(double speed, double rotation) {drive.arcadeDrive(speed, rotation);}
     public void driveTank(double leftSpeed, double rightSpeed){drive.tankDrive(leftSpeed, rightSpeed);}
