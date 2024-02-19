@@ -100,5 +100,6 @@ public class OI {
         }
         dY.whileTrue(new RunClimber());
         dLBump.whileTrue(new ReverseRunClimber());
+        dStart.onTrue(new CollectorPositionToggle());
     }
 }
