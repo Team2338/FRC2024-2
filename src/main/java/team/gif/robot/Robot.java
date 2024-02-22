@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.autos.Autos;
+import team.gif.robot.commands.autos.Mobility;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.commands.shooter.StupidShooter;
 import team.gif.robot.subsystems.*;
@@ -64,6 +66,8 @@ public class Robot extends TimedRobot {
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
         oi = new OI();
+        autonomousCommand = new Mobility();
+
     }
 
     /**
@@ -94,6 +98,7 @@ public class Robot extends TimedRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         if (autonomousCommand != null) {
+            System.out.println("auto scheduled");
             autonomousCommand.schedule();
         }
     }

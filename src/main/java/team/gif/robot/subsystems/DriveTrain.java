@@ -26,8 +26,8 @@ public class DriveTrain extends SubsystemBase {
         frontRightCIM.configFactoryDefault();
         rearRightCIM.configFactoryDefault();
 
-        frontLeftCIM.follow(frontLeftCIM);
-        rearRightCIM.follow(frontRightCIM);
+//        frontLeftCIM.follow(frontLeftCIM);
+//        rearRightCIM.follow(frontRightCIM);
 
         drive = new DifferentialDrive(frontLeftCIM, frontRightCIM);
     }
