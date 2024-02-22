@@ -22,7 +22,7 @@ private int runs;
     @Override
     public void execute() {
         runs++;
-        double shooterPercent = -1;
+        double shooterPercent = -.8;
         if(Robot.isReversed) {
             shooterPercent *= 1;
         }

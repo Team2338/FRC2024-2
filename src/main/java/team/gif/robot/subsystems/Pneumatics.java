@@ -10,17 +10,17 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class Pneumatics extends SubsystemBase {
-    private static final DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, RobotMap.SOLENOID_IN_ID, RobotMap.SOLENOID_OUT_ID);
-    private DoubleSolenoid.Value state = DoubleSolenoid.Value.kForward;
+    private DoubleSolenoid solenoid;
 
 
-    public Pneumatics() {}
+    public Pneumatics() {
+        solenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, RobotMap.SOLENOID_IN_ID, RobotMap.SOLENOID_OUT_ID);
+    }
     public void collectorToggle() {
-        if (state == DoubleSolenoid.Value.kForward) {
-            state = DoubleSolenoid.Value.kReverse;
-        } else {
-            state = DoubleSolenoid.Value.kForward;
-        }
+        solenoid.toggle();
     }
 
+    public void setSolenoid(DoubleSolenoid.Value state) {
+        solenoid.set(state);
+    }
 }

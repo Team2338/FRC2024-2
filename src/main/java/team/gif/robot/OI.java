@@ -4,10 +4,13 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.*;
+import team.gif.robot.commands.CollectorDown;
+import team.gif.robot.commands.CollectorUp;
 import team.gif.robot.commands.IndexOverride;
 import team.gif.robot.commands.climber.ReverseRunClimber;
 import team.gif.robot.commands.climber.RunClimber;
 import team.gif.robot.commands.collector.Collect;
+import team.gif.robot.commands.collector.CollectorPositionToggle;
 import team.gif.robot.commands.indexer.IndexNote;
 import team.gif.robot.commands.shooter.Shoot;
 
@@ -104,6 +107,7 @@ public class OI {
         }
         dY.whileTrue(new RunClimber());
         dLBump.whileTrue(new ReverseRunClimber());
-        dStart.onTrue(new CollectorPositionToggle());
+        dStart.onTrue(new CollectorDown());
+        dBack.onTrue(new CollectorUp());
     }
 }
