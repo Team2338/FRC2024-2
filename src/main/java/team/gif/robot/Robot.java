@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
+import team.gif.robot.commands.shooter.StupidShooter;
 import team.gif.robot.subsystems.*;
 import team.gif.robot.subsystems.drivers.Limelight;
 import team.gif.robot.subsystems.drivers.Pigeon;
@@ -53,6 +54,7 @@ public class Robot extends TimedRobot {
 //        driveTrain.setDefaultCommand(new ArcadeDrive());
         driveTrain.setDefaultCommand(new ArcadeDrive());
         shooter = new Shooter();
+        shooter.setDefaultCommand(new StupidShooter());
         collector = new Collector();
         indexer = new Indexer();
         climber = new Climber();
