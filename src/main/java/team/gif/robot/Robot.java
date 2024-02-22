@@ -29,6 +29,7 @@ public class Robot extends TimedRobot {
     public static Limelight limelight;
     public static Shooter shooter;
     public static Indexer indexer;
+    public static Pneumatics pneumatics;
     public static OI oi;
     public static UI ui;
     public static UiSmartDashboard uiSmartDashboard;
@@ -57,6 +58,7 @@ public class Robot extends TimedRobot {
         shooter.setDefaultCommand(new StupidShooter());
         collector = new Collector();
         indexer = new Indexer();
+        pneumatics = new Pneumatics();
         climber = new Climber();
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
