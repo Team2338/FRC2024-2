@@ -1,28 +1,26 @@
 package team.gif.robot.commands;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Robot;
 
-public class StupidShooter extends Command {
+public class CollectorUp extends Command {
 
-    public StupidShooter() {
+    public CollectorUp() {
         super();
+        addRequirements(Robot.pneumatics);
         //addRequirements(Robot.climber); // uncomment
-        addRequirements(Robot.shooter);
     }
 
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-
+        Robot.pneumatics.setSolenoid(DoubleSolenoid.Value.kReverse);
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
-    public void execute() {
-        double shooterSpeed = Robot.oi.driver.getRightY();
-        Robot.shooter.shooter(shooterSpeed);
-    }
+    public void execute() {}
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override

@@ -1,4 +1,4 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.collector;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
@@ -18,7 +18,7 @@ public class Collect extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double collectorSpeed = 1;
+        double collectorSpeed = -1;
         double indexModifier = 1;
         if (Robot.isReversed) {
         collectorSpeed *= -1;

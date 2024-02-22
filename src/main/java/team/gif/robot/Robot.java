@@ -5,12 +5,15 @@
 package team.gif.robot;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.robot.commands.ArcadeDrive;
+import team.gif.robot.commands.autos.Autos;
+import team.gif.robot.commands.autos.Mobility;
+import team.gif.robot.commands.drivetrain.ArcadeDrive;
+import team.gif.robot.commands.shooter.StupidShooter;
 import team.gif.robot.subsystems.*;
-import team.gif.robot.commands.TankDrive;
 import team.gif.robot.subsystems.drivers.Limelight;
 import team.gif.robot.subsystems.drivers.Pigeon;
 
@@ -29,6 +32,7 @@ public class Robot extends TimedRobot {
     public static Limelight limelight;
     public static Shooter shooter;
     public static Indexer indexer;
+    public static Pneumatics pneumatics;
     public static OI oi;
     public static UI ui;
     public static UiSmartDashboard uiSmartDashboard;
@@ -51,14 +55,19 @@ public class Robot extends TimedRobot {
         pigeon.addToShuffleboard("FRC2024", "head");
         limelight = new Limelight();
         driveTrain = new DriveTrain();
-        driveTrain.setDefaultCommand(new ArcadeDrive());
+//        driveTrain.setDefaultCommand(new ArcadeDrive());
+        driveTrain.setDefaultCommand(new TankDrive());
         shooter = new Shooter();
+        shooter.setDefaultCommand(new StupidShooter());
         collector = new Collector();
         indexer = new Indexer();
+        pneumatics = new Pneumatics();
         climber = new Climber();
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
         oi = new OI();
+        autonomousCommand = new Mobility();
+
     }
 
     /**
@@ -89,6 +98,7 @@ public class Robot extends TimedRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         if (autonomousCommand != null) {
+            System.out.println("auto scheduled");
             autonomousCommand.schedule();
         }
     }
