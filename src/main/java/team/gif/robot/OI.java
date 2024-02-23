@@ -109,5 +109,8 @@ public class OI {
         dLBump.whileTrue(new ReverseRunClimber());
         dStart.onTrue(new CollectorDown());
         dBack.onTrue(new CollectorUp());
+        aA.whileTrue(new Collect());
+        aA.whileTrue(new IndexNote());
+        aStart.onTrue(new CollectorPositionToggle());
     }
 }
