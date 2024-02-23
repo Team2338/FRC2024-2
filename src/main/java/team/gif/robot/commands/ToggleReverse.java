@@ -7,7 +7,6 @@ public class ToggleReverse extends Command {
 
     public ToggleReverse() {
         super();
-        addRequirements(Robot.shooter);
         //addRequirements(Robot.climber); // uncomment
     }
 
