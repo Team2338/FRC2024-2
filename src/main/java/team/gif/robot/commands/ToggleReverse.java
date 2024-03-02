@@ -13,6 +13,7 @@ public class ToggleReverse extends Command {
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
+        System.out.println(Robot.isReversed);
         Robot.isReversed = !Robot.isReversed;
     }
 
