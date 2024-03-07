@@ -116,6 +116,11 @@ public class OI {
         //aux
         aA.whileTrue(new Collect());
         aB.whileTrue(new Shoot());
+        aX.whileTrue(new IndexNote());
+        aRTrigger.whileTrue(new IndexOverride());
+        aRBump.onTrue(
+                new InstantCommand(Robot.collector::toggleReverse)
+        );
         aStart.onTrue(new CollectorDown());
         aBack.onTrue(new CollectorUp());
     }

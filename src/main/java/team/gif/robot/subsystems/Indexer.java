@@ -4,6 +4,7 @@
 
 package team.gif.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkFlex;
@@ -19,6 +20,8 @@ public class Indexer extends SubsystemBase {
     public DigitalInput indexerSensor;
     public Indexer() {
         indexerMotor = new TalonSRX(RobotMap.INDEXER_ID);
+        indexerMotor.configFactoryDefault();
+        indexerMotor.setNeutralMode(NeutralMode.Brake);
         indexerSensor = new DigitalInput(0);
     }
     public void runIndexer(double speed){
@@ -28,6 +31,6 @@ public class Indexer extends SubsystemBase {
         indexerMotor.set(TalonSRXControlMode.PercentOutput, 0);}
 
     public boolean getSensor() {
-        return indexerSensor.get();
+        return !indexerSensor.get();
     }
 }
