@@ -4,6 +4,7 @@
 
 package team.gif.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -21,13 +22,19 @@ public class DriveTrain extends SubsystemBase {
         rearLeftCIM = new WPI_TalonSRX(RobotMap.REAR_LEFT_CIM);
         frontRightCIM = new WPI_TalonSRX(RobotMap.FRONT_RIGHT_CIM);
         rearRightCIM = new WPI_TalonSRX(RobotMap.REAR_RIGHT_CIM);
+
         frontLeftCIM.configFactoryDefault();
         rearLeftCIM.configFactoryDefault();
         frontRightCIM.configFactoryDefault();
         rearRightCIM.configFactoryDefault();
 
-//        frontLeftCIM.follow(frontLeftCIM);
-//        rearRightCIM.follow(frontRightCIM);
+        frontLeftCIM.setNeutralMode(NeutralMode.Brake);
+        rearLeftCIM.setNeutralMode(NeutralMode.Brake);
+        frontRightCIM.setNeutralMode(NeutralMode.Brake);
+        rearRightCIM.setNeutralMode(NeutralMode.Brake);
+
+        rearLeftCIM.follow(frontLeftCIM);
+        rearRightCIM.follow(frontRightCIM);
 
         drive = new DifferentialDrive(frontLeftCIM, frontRightCIM);
     }

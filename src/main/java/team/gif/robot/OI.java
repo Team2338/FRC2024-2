@@ -1,6 +1,7 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.*;
@@ -98,16 +99,29 @@ public class OI {
      * Simple Test:
      *   aX.onTrue(new PrintCommand("aX"));
      */
+
+        //Driver
         dB.whileTrue(new Shoot());
         dA.whileTrue(new Collect());
-    dX.whileTrue(new IndexNote());
-    dRTrigger.whileTrue(new IndexOverride());
-    dRBump.onTrue(new ToggleReverse());
-    {
-        }
-        dY.whileTrue(new RunClimber());
-        dLBump.whileTrue(new ReverseRunClimber());
+        dX.whileTrue(new IndexNote());
+        dRTrigger.whileTrue(new IndexOverride());
+        dRBump.onTrue(
+                new InstantCommand(Robot.collector::toggleReverse)
+        );
+//        dY.whileTrue(new RunClimber());
+//        dLBump.whileTrue(new ReverseRunClimber());
         dStart.onTrue(new CollectorDown());
         dBack.onTrue(new CollectorUp());
+
+        //aux
+        aA.whileTrue(new Collect());
+        aB.whileTrue(new Shoot());
+        aX.whileTrue(new IndexNote());
+        aRTrigger.whileTrue(new IndexOverride());
+        aRBump.onTrue(
+                new InstantCommand(Robot.collector::toggleReverse)
+        );
+        aStart.onTrue(new CollectorDown());
+        aBack.onTrue(new CollectorUp());
     }
 }
