@@ -114,14 +114,14 @@ public class OI {
         dBack.onTrue(new CollectorUp());
 
         //aux
-        aA.whileTrue(new Collect());
-        aB.whileTrue(new Shoot());
-        aX.whileTrue(new IndexNote());
-        aRTrigger.whileTrue(new IndexOverride());
-        aRBump.onTrue(
+        aB.whileTrue(new Collect());
+        aX.whileTrue(new Shoot());
+        aA.whileTrue(new IndexNote());
+        aStart.whileTrue(new IndexOverride());
+        aLBump.onTrue(
                 new InstantCommand(Robot.collector::toggleReverse)
         );
-        aStart.onTrue(new CollectorDown());
-        aBack.onTrue(new CollectorUp());
+        aRStickBtn.onTrue(new CollectorDown());
+        aLStickBtn.onTrue(new CollectorUp());
     }
 }
