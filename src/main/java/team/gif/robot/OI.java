@@ -121,7 +121,7 @@ public class OI {
         aLBump.onTrue(
                 new InstantCommand(Robot.collector::toggleReverse)
         );
-        aRStickBtn.onTrue(new CollectorDown());
-        aLStickBtn.onTrue(new CollectorUp());
+        aLStickBtn.onTrue(new CollectorDown());
+        aRStickBtn.onTrue(new CollectorUp());
     }
 }
