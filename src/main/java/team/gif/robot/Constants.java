@@ -14,10 +14,14 @@ package team.gif.robot;
  */
 public final class Constants {
     public static class OperatorConstants {
-        public static class Shooter{
-            public static final double Shooter_PERCENT = 0.5;
-        }
+
         public static final int kDriverControllerPort = 0;
+    }
+
+    public static class Shooter{
+        public static final double SHOOTER_PERCENT = 1;
+
+        public static final double AMP_PERCENT = 0.5;
     }
 
     public static class Indexer {

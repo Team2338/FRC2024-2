@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class Shoot extends Command {
+public class AmpShoot extends Command {
 private int runs;
-    public Shoot() {
+    public AmpShoot() {
         super();
         //addRequirements(Robot.climber); // uncomment
         addRequirements(Robot.shooter, Robot.indexer);
@@ -22,7 +22,7 @@ private int runs;
     @Override
     public void execute() {
         runs++;
-        double shooterPercent = Constants.Shooter.SHOOTER_PERCENT;
+        double shooterPercent = -Constants.Shooter.AMP_PERCENT;
         if(Robot.isReversed) {
             shooterPercent *= -1;
         }

@@ -13,6 +13,7 @@ import team.gif.robot.commands.climber.RunClimber;
 import team.gif.robot.commands.collector.Collect;
 import team.gif.robot.commands.collector.CollectorPositionToggle;
 import team.gif.robot.commands.indexer.IndexNote;
+import team.gif.robot.commands.shooter.AmpShoot;
 import team.gif.robot.commands.shooter.Shoot;
 
 public class OI {
@@ -104,6 +105,7 @@ public class OI {
         dB.whileTrue(new Shoot());
         dA.whileTrue(new Collect());
         dX.whileTrue(new IndexNote());
+        dY.whileTrue(new AmpShoot());
         dRTrigger.whileTrue(new IndexOverride());
         dRBump.onTrue(
                 new InstantCommand(Robot.collector::toggleReverse)
@@ -117,6 +119,7 @@ public class OI {
         aA.whileTrue(new Collect());
         aB.whileTrue(new Shoot());
         aX.whileTrue(new IndexNote());
+        aY.whileTrue(new AmpShoot());
         aRTrigger.whileTrue(new IndexOverride());
         aRBump.onTrue(
                 new InstantCommand(Robot.collector::toggleReverse)
