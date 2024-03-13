@@ -56,8 +56,8 @@ public class Robot extends TimedRobot {
         pigeon.addToShuffleboard("FRC2024", "head");
         limelight = new Limelight();
         driveTrain = new DriveTrain();
-        driveTrain.setDefaultCommand(new ArcadeDrive());
-//        driveTrain.setDefaultCommand(new TankDrive());
+//        driveTrain.setDefaultCommand(new ArcadeDrive());
+        driveTrain.setDefaultCommand(new TankDrive());
         shooter = new Shooter();
         shooter.setDefaultCommand(new StupidShooter());
         collector = new Collector();
