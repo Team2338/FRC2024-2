@@ -20,7 +20,7 @@ public class StupidShooter extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double shooterSpeed = -Robot.oi.aux.getLeftTriggerAxis();
+        double shooterSpeed = Robot.oi.aux.getRightTriggerAxis();
         Robot.shooter.shooter(shooterSpeed);
     }
 

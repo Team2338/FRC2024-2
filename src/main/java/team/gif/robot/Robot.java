@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.autos.Autos;
 import team.gif.robot.commands.autos.Mobility;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
+import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.commands.shooter.StupidShooter;
 import team.gif.robot.subsystems.*;
 import team.gif.robot.subsystems.drivers.Limelight;
@@ -55,8 +56,8 @@ public class Robot extends TimedRobot {
         pigeon.addToShuffleboard("FRC2024", "head");
         limelight = new Limelight();
         driveTrain = new DriveTrain();
-//        driveTrain.setDefaultCommand(new ArcadeDrive());
         driveTrain.setDefaultCommand(new ArcadeDrive());
+//        driveTrain.setDefaultCommand(new TankDrive());
         shooter = new Shooter();
         shooter.setDefaultCommand(new StupidShooter());
         collector = new Collector();
