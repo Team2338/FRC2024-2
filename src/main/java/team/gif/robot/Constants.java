@@ -19,17 +19,17 @@ public final class Constants {
     }
 
     public static class Shooter{
-        public static final double SHOOTER_PERCENT = 1;
+        public static final double SHOOTER_PERCENT = -1;
 
         public static final double AMP_PERCENT = 0.5;
     }
 
     public static class Indexer {
-        public static final double INDEXER_PERCENT = 1;
+        public static final double INDEXER_PERCENT = -1;
         public static final double REVERSE_INDEX_PERCENT = -1;
     }
 
     public static class Collector {
-        public static final double COLLECTOR_PERCENT = .7;
+        public static final double COLLECTOR_PERCENT = -.7;
     }
 }

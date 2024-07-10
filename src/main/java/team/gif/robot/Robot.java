@@ -52,8 +52,8 @@ public class Robot extends TimedRobot {
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
         isReversed = false;
-        pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON));
-        pigeon.addToShuffleboard("FRC2024", "head");
+//        pigeon = new Pigeon(new TalonSRX(RobotMap.PIGEON));
+//        pigeon.addToShuffleboard("FRC2024", "head");
         limelight = new Limelight();
         driveTrain = new DriveTrain();
         driveTrain.setDefaultCommand(new ArcadeDrive());

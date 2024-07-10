@@ -18,7 +18,7 @@ public class Collect extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        double collectorSpeed = -1;
+        double collectorSpeed = 1;
         double indexModifier = 1;
         if (Robot.isReversed) {
         collectorSpeed *= -1;
