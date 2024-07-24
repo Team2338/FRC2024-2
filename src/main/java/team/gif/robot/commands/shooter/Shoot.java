@@ -9,7 +9,7 @@ private int runs;
     public Shoot() {
         super();
         //addRequirements(Robot.climber); // uncomment
-        addRequirements(Robot.shooter, Robot.indexer);
+        addRequirements(Robot.shooter);
     }
 
     // Called when the command is initially scheduled.
@@ -28,10 +28,10 @@ private int runs;
         }
         Robot.shooter.shooter(shooterPercent);
         //TODO: Sensor broke?
-        if(runs>100 && Robot.indexer.getSensor()) {
-            Robot.indexer.runIndexer(Constants.Indexer.INDEXER_PERCENT);
-
-        }
+//        if(runs>100 && Robot.indexer.getSensor()) {
+//            Robot.indexer.runIndexer(Constants.Indexer.INDEXER_PERCENT);
+//
+//        }
 
 
     }
