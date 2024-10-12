@@ -107,7 +107,7 @@ public class OI {
         dX.whileTrue(new IndexNote());
         dY.whileTrue(new AmpShoot());
         dRTrigger.whileTrue(new IndexOverride());
-        dRBump.onTrue(
+        dRBump.and(dLBump).onTrue(
                 new InstantCommand(Robot.collector::toggleReverse)
         );
 //        dY.whileTrue(new RunClimber());
@@ -121,7 +121,7 @@ public class OI {
         aX.whileTrue(new IndexNote());
         aY.whileTrue(new AmpShoot());
         aRTrigger.whileTrue(new IndexOverride());
-        aRBump.onTrue(
+        aRBump.and(aLBump).onTrue(
                 new InstantCommand(Robot.collector::toggleReverse)
         );
         aStart.onTrue(new CollectorDown());

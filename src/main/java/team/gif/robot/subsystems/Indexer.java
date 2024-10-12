@@ -22,6 +22,7 @@ public class Indexer extends SubsystemBase {
         indexerMotor = new TalonSRX(RobotMap.INDEXER_ID);
         indexerMotor.configFactoryDefault();
         indexerMotor.setNeutralMode(NeutralMode.Brake);
+        indexerMotor.setInverted(true);
         indexerSensor = new DigitalInput(0);
     }
     public void runIndexer(double speed){

@@ -28,8 +28,8 @@ private int runs;
         }
         Robot.shooter.shooter(shooterPercent);
         //TODO: Sensor broke?
-        if(runs>100 && Robot.indexer.getSensor()) {
-            Robot.indexer.runIndexer(Constants.Indexer.INDEXER_PERCENT);
+        if(runs>50 && Robot.indexer.getSensor()) {
+            Robot.indexer.runIndexer(Constants.Indexer.INDEXER_PERCENT_ON_SHOOT);
 
         }
 

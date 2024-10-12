@@ -4,15 +4,12 @@
 
 package team.gif.robot;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.robot.commands.autos.Autos;
+import team.gif.robot.commands.autos.Auto;
 import team.gif.robot.commands.autos.Mobility;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
-import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.commands.shooter.StupidShooter;
 import team.gif.robot.subsystems.*;
 import team.gif.robot.subsystems.drivers.Limelight;
@@ -67,7 +64,9 @@ public class Robot extends TimedRobot {
         ui = new UI();
         uiSmartDashboard = new UiSmartDashboard();
         oi = new OI();
-        autonomousCommand = new Mobility();
+
+//        autonomousCommand = new Mobility();
+        autonomousCommand = new Auto();
 
     }
 

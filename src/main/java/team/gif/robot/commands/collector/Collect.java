@@ -28,7 +28,7 @@ public class Collect extends Command {
             indexModifier *= 0;
         }
         Robot.collector.runCollector(collectorSpeed);
-        Robot.indexer.runIndexer(indexModifier * Constants.Indexer.INDEXER_PERCENT);
+        Robot.indexer.runIndexer(indexModifier * Constants.Indexer.INDEXER_PERCENT_ON_COLLECT);
 
     }
 
