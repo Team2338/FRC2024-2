@@ -25,12 +25,12 @@ public class Shoot extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.shooter.shooter(Constants.Shooter.SHOOTER_PERCENT);
+        Robot.shooter.setRPM(Constants.Shooter.SHOOTER_RPM);
 
-        if (count > 50) {
+        if (Robot.shooter.getRPM() > Constants.Shooter.SHOOTER_RPM) {
             Robot.indexer.runIndexer(Constants.Indexer.INDEXER_PERCENT_ON_SHOOT );
         }
-
+        System.out.println(Robot.shooter.getRPM());
         count++;
 
         if(!Robot.indexer.getSensor()) {

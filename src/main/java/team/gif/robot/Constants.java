@@ -20,6 +20,8 @@ public final class Constants {
 
     public static class Shooter{
         public static final double SHOOTER_PERCENT = -1;
+        public static final double SHOOTER_RPM = 5000;
+        public static final double AMP_RPM = 2500;
 
         public static final double AMP_PERCENT = 0.5;
     }

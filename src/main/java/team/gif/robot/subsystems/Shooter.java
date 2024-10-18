@@ -8,10 +8,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.revrobotics.CANSparkBase;
-import com.revrobotics.CANSparkLowLevel;
-import com.revrobotics.CANSparkFlex;
-import com.revrobotics.CANSparkMax;
+import com.revrobotics.*;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.Constants;
@@ -20,13 +17,23 @@ import team.gif.robot.RobotMap;
 public class Shooter extends SubsystemBase {
     /** Creates a new ExampleSubsystem. */
     private static CANSparkFlex shooter;
+    private static SparkPIDController shooterPid;
     public Shooter() {
         shooter = new CANSparkFlex(RobotMap.SHOOTER_ID, CANSparkLowLevel.MotorType.kBrushless);
         shooter.restoreFactoryDefaults();
+        shooter.setInverted(true);
         shooter.setIdleMode(CANSparkBase.IdleMode.kCoast);
+        shooterPid = shooter.getPIDController();
+        shooterPid.setP(0.00035);
+        shooterPid.setI(0.0000006);
     }
+    public void setRPM (double rpm) {shooterPid.setReference(rpm, CANSparkBase.ControlType.kVelocity); }
     public void shooter (double speed){
         shooter.set(speed);
+    }
+
+    public double getRPM() {
+        return shooter.getEncoder().getVelocity();
     }
 
 }

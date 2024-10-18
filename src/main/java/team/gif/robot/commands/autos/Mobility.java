@@ -24,13 +24,13 @@ private int timer;
         timer++;
 
         //runs every 20ms, so 100 will be 2 seconds
-        Robot.driveTrain.driveTank(1, -1);
+        Robot.driveTrain.driveTank(0.75, -0.75);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return timer < 100 ? false : true;
+        return timer < 90 ? false : true;
     }
 
     // Called when the command ends or is interrupted.

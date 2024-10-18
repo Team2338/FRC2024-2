@@ -22,16 +22,15 @@ private int runs;
     @Override
     public void execute() {
         runs++;
-        double shooterPercent = Constants.Shooter.SHOOTER_PERCENT;
+        double shooterRPM = Constants.Shooter.SHOOTER_RPM;
         if(Robot.isReversed) {
-            shooterPercent *= -1;
+            shooterRPM *= -1;
         }
-        Robot.shooter.shooter(shooterPercent);
-        if(runs>50 && Robot.indexer.getSensor()) {
+        Robot.shooter.setRPM(shooterRPM);
+        if(Robot.shooter.getRPM() > Constants.Shooter.SHOOTER_RPM * 0.98 && Robot.indexer.getSensor()) {
             Robot.indexer.runIndexer(Constants.Indexer.INDEXER_PERCENT);
 
         }
-
 
     }
 
